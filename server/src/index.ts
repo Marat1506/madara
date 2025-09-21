@@ -149,61 +149,61 @@ app.get("/api/auth/session", authenticateToken, validateSessionRoute);
 // User Management Routes (Admin only)
 app.get("/api/auth/users", authenticateToken, requireAdmin, getUsers);
 app.post("/api/auth/users", authenticateToken, requireAdmin, createUserRoute);
-// app.put("/api/auth/users/:username", authenticateToken, requireAdmin, updateUserRoute);
-// app.delete("/api/auth/users/:username", authenticateToken, requireAdmin, deleteUserRoute);
+app.put("/api/auth/users/:username", authenticateToken, requireAdmin, updateUserRoute);
+app.delete("/api/auth/users/:username", authenticateToken, requireAdmin, deleteUserRoute);
 
 // =====================================
 // Students API Routes (Protected)
 // =====================================
 app.get("/api/students", authenticateToken, getStudents);
-// app.get("/api/students/:id", authenticateToken, getStudentById);
+app.get("/api/students/:id", authenticateToken, getStudentById);
 app.post("/api/students", authenticateToken, requireAdmin, createStudent);
-// app.put("/api/students/:id", authenticateToken, requireAdmin, updateStudent);
-// app.delete("/api/students/:id", authenticateToken, requireAdmin, deleteStudent);
-// app.get("/api/students/:id/classes", authenticateToken, getStudentClasses);
+app.put("/api/students/:id", authenticateToken, requireAdmin, updateStudent);
+app.delete("/api/students/:id", authenticateToken, requireAdmin, deleteStudent);
+app.get("/api/students/:id/classes", authenticateToken, getStudentClasses);
 
 // =====================================
 // Schools API Routes (Protected)
 // =====================================
 app.get("/api/schools", authenticateToken, getSchools);
-// app.get("/api/schools/:id", authenticateToken, getSchoolById);
+app.get("/api/schools/:id", authenticateToken, getSchoolById);
 app.post("/api/schools", authenticateToken, requireAdmin, createSchool);
-// app.put("/api/schools/:id", authenticateToken, requireAdmin, updateSchool);
-// app.delete("/api/schools/:id", authenticateToken, requireAdmin, deleteSchool);
-// app.get("/api/schools/:id/classes", authenticateToken, getSchoolClasses);
-// app.get("/api/schools/:id/teachers", authenticateToken, getSchoolTeachers);
-// app.get("/api/schools/:id/students", authenticateToken, getSchoolStudents);
+app.put("/api/schools/:id", authenticateToken, requireAdmin, updateSchool);
+app.delete("/api/schools/:id", authenticateToken, requireAdmin, deleteSchool);
+app.get("/api/schools/:id/classes", authenticateToken, getSchoolClasses);
+app.get("/api/schools/:id/teachers", authenticateToken, getSchoolTeachers);
+app.get("/api/schools/:id/students", authenticateToken, getSchoolStudents);
 
 // =====================================
 // Classes API Routes (Protected)
 // =====================================
 app.get("/api/classes", authenticateToken, getClasses);
-// app.get("/api/classes/:id", authenticateToken, getClassById);
+app.get("/api/classes/:id", authenticateToken, getClassById);
 app.post("/api/classes", authenticateToken, requireAdmin, createClass);
-// app.put("/api/classes/:id", authenticateToken, requireAdmin, updateClass);
-// app.delete("/api/classes/:id", authenticateToken, requireAdmin, deleteClass);
-// app.get("/api/classes/:id/students", authenticateToken, getClassStudents);
-// app.get("/api/classes/:id/schedule", authenticateToken, getClassSchedule);
+app.put("/api/classes/:id", authenticateToken, requireAdmin, updateClass);
+app.delete("/api/classes/:id", authenticateToken, requireAdmin, deleteClass);
+app.get("/api/classes/:id/students", authenticateToken, getClassStudents);
+app.get("/api/classes/:id/schedule", authenticateToken, getClassSchedule);
 
 // =====================================
 // Teachers API Routes (Protected)
 // =====================================
 app.get("/api/teachers", authenticateToken, getTeachers);
-// app.get("/api/teachers/:id", authenticateToken, getTeacherById);
+app.get("/api/teachers/:id", authenticateToken, getTeacherById);
 app.post("/api/teachers", authenticateToken, requireAdmin, createTeacher);
-// app.put("/api/teachers/:id", authenticateToken, requireAdmin, updateTeacher);
-// app.delete("/api/teachers/:id", authenticateToken, requireAdmin, deleteTeacher);
-// app.get("/api/teachers/:id/classes", authenticateToken, getTeacherClasses);
-// app.get("/api/teachers/:id/students", authenticateToken, getTeacherStudents);
+app.put("/api/teachers/:id", authenticateToken, requireAdmin, updateTeacher);
+app.delete("/api/teachers/:id", authenticateToken, requireAdmin, deleteTeacher);
+app.get("/api/teachers/:id/classes", authenticateToken, getTeacherClasses);
+app.get("/api/teachers/:id/students", authenticateToken, getTeacherStudents);
 
 // =====================================
 // Subjects API Routes (Protected)
 // =====================================
 app.get("/api/subjects", authenticateToken, getSubjects);
-// app.get("/api/subjects/:id", authenticateToken, getSubjectById);
+app.get("/api/subjects/:id", authenticateToken, getSubjectById);
 app.post("/api/subjects", authenticateToken, requireAdmin, createSubject);
-// app.put("/api/subjects/:id", authenticateToken, requireAdmin, updateSubject);
-// app.delete("/api/subjects/:id", authenticateToken, requireAdmin, deleteSubject);
+app.put("/api/subjects/:id", authenticateToken, requireAdmin, updateSubject);
+app.delete("/api/subjects/:id", authenticateToken, requireAdmin, deleteSubject);
 app.get("/api/subjects/categories", authenticateToken, getSubjectsByCategory);
 app.get("/api/subjects/predefined", authenticateToken, getPredefinedSubjects);
 app.post("/api/subjects/bulk-create", authenticateToken, requireAdmin, bulkCreateSubjects);
@@ -212,10 +212,10 @@ app.post("/api/subjects/bulk-create", authenticateToken, requireAdmin, bulkCreat
 // Enrollments API Routes (Protected)
 // =====================================
 app.get("/api/enrollments", authenticateToken, getEnrollments);
-// app.get("/api/enrollments/:id", authenticateToken, getEnrollmentById);
+app.get("/api/enrollments/:id", authenticateToken, getEnrollmentById);
 app.post("/api/enrollments", authenticateToken, requireAdmin, createEnrollment);
-// app.put("/api/enrollments/:id", authenticateToken, requireAdmin, updateEnrollment);
-// app.delete("/api/enrollments/:id", authenticateToken, requireAdmin, deleteEnrollment);
+app.put("/api/enrollments/:id", authenticateToken, requireAdmin, updateEnrollment);
+app.delete("/api/enrollments/:id", authenticateToken, requireAdmin, deleteEnrollment);
 app.post("/api/enrollments/bulk", authenticateToken, requireAdmin, bulkCreateEnrollments);
 // app.put("/api/enrollments/:id/transfer", authenticateToken, requireAdmin, transferStudent);
 
@@ -224,8 +224,8 @@ app.post("/api/enrollments/bulk", authenticateToken, requireAdmin, bulkCreateEnr
 // =====================================
 app.get("/api/dashboard/stats", authenticateToken, getDashboardStats);
 app.get("/api/dashboard/overview", authenticateToken, getDashboardOverview);
-// app.get("/api/dashboard/school/:id/stats", authenticateToken, getSchoolStats);
-// app.get("/api/dashboard/teacher/:id/stats", authenticateToken, getTeacherStats);
+app.get("/api/dashboard/school/:id/stats", authenticateToken, getSchoolStats);
+app.get("/api/dashboard/teacher/:id/stats", authenticateToken, getTeacherStats);
 app.get("/api/dashboard/academic-years", authenticateToken, getAcademicYears);
 
 // =====================================
@@ -233,10 +233,10 @@ app.get("/api/dashboard/academic-years", authenticateToken, getAcademicYears);
 // =====================================
 app.get("/api/schedule", authenticateToken, getSchedule);
 app.get("/api/schedule/weekly", authenticateToken, getWeeklySchedule);
-// app.get("/api/schedule/class/:id", authenticateToken, getClassScheduleDetailed);
-// app.get("/api/schedule/teacher/:id", authenticateToken, getTeacherSchedule);
-// app.get("/api/schedule/school/:id", authenticateToken, getSchoolSchedule);
-// app.post("/api/schedule/validate", authenticateToken, requireAdmin, validateSchedule);
+app.get("/api/schedule/class/:id", authenticateToken, getClassScheduleDetailed);
+app.get("/api/schedule/teacher/:id", authenticateToken, getTeacherSchedule);
+app.get("/api/schedule/school/:id", authenticateToken, getSchoolSchedule);
+app.post("/api/schedule/validate", authenticateToken, requireAdmin, validateSchedule);
 app.get("/api/schedule/conflicts", authenticateToken, getScheduleConflicts);
 app.get("/api/schedule/rooms", authenticateToken, getRoomUtilization);
 
